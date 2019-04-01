@@ -309,7 +309,7 @@ SelectFunction::SelectFunction()
 		char playerOnMove {'X'};
 		do
 		{
-			game.startGame();
+			game.startGame(playerOnMove);
 			std::cin >> field;
 			if (field == 7)
 			{

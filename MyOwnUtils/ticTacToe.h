@@ -38,7 +38,7 @@ public:
 		,field09{true}, winner{false};
 
 	std::string gameFieldToString() const;
-	void startGame() const;
+	void startGame(char &playerOnMove) const;
 	void gameOver() const;
 	void setField07(int  &player,  bool & );
 	void setField08(int  &player,  bool & );

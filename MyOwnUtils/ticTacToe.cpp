@@ -80,7 +80,7 @@ void TicTacToe::checkForWi( bool &, bool &, bool &,
 	swapPlayer(player);
 }
 
-void TicTacToe::startGame() const
+void TicTacToe::startGame(char &) const
 {
 	system("cls");
 	Welcome();
@@ -91,7 +91,7 @@ void TicTacToe::startGame() const
 	std::cout << std::setw(9) << "Player " << playerOnMove << " Select Field: ";
 }
 
-void TicTacToe::setField07( int &player, bool& )
+void TicTacToe::setField07( int & player, bool& )
 {
 	if(player == 1 && field07 == true)
 	{
@@ -127,7 +127,7 @@ void TicTacToe::setField07( int &player, bool& )
 	}
 }
 
-void TicTacToe::setField08( int &player, bool& )
+void TicTacToe::setField08( int & player, bool& )
 {
 	if(player == 1 && field08 == true)
 	{
@@ -163,7 +163,7 @@ void TicTacToe::setField08( int &player, bool& )
 	}
 }
 
-void TicTacToe::setField09( int &player, bool& )
+void TicTacToe::setField09( int & player, bool& )
 {
 	if(player == 1 && field09 == true)
 	{
@@ -199,7 +199,7 @@ void TicTacToe::setField09( int &player, bool& )
 	}
 }
 	
-void TicTacToe::setField04( int &player, bool& )
+void TicTacToe::setField04( int & player, bool& )
 {
 	if(player == 1 && field04 == true)
 	{
@@ -235,7 +235,7 @@ void TicTacToe::setField04( int &player, bool& )
 	}
 }
 
-void TicTacToe::setField05( int &player, bool & )
+void TicTacToe::setField05( int & player, bool & )
 {
 	if(player == 1 && field05 == true)
 	{
@@ -271,7 +271,7 @@ void TicTacToe::setField05( int &player, bool & )
 	}
 }
 
-void TicTacToe::setField06( int &player, bool & )
+void TicTacToe::setField06( int & player, bool & )
 {
 	if(player == 1 && field06 == true)
 	{
@@ -307,7 +307,7 @@ void TicTacToe::setField06( int &player, bool & )
 	}
 }
 
-void TicTacToe::setField01( int &player, bool & )
+void TicTacToe::setField01( int & player, bool & )
 {
 	if(player == 1 && field01 == true)
 	{
@@ -343,7 +343,7 @@ void TicTacToe::setField01( int &player, bool & )
 	}
 }
 
-void TicTacToe::setField02( int &player, bool& )
+void TicTacToe::setField02( int & player, bool& )
 {
 	if(player == 1 && field02 == true)
 	{
@@ -379,7 +379,7 @@ void TicTacToe::setField02( int &player, bool& )
 	}
 }
 
-void TicTacToe::setField03( int &player, bool & )
+void TicTacToe::setField03( int & player, bool & )
 {
 	if(player == 1 && field03 == true)
 	{
@@ -415,7 +415,7 @@ void TicTacToe::setField03( int &player, bool & )
 	}
 } 
 
-int TicTacToe::swapPlayer( int &player)
+int TicTacToe::swapPlayer( int & player)
 {
 	switch(player)
 	{
