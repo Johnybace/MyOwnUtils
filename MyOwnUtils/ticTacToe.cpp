@@ -6,6 +6,8 @@
 #include "welcome.h"
 #include "ticTacToe.h"
 
+#include "cinclearbuffer.cpp"
+
 std::string TicTacToe::gameFieldToString() const
 {
 	std::stringstream ss;
@@ -31,9 +33,307 @@ std::string TicTacToe::gameFieldToString() const
 	return ss.str();
 }
 
-void TicTacToe::checkForWi( bool &, bool &, bool &, 
-							bool &, bool &, bool &, bool &,
-							bool &, bool &, bool &, int  &player)
+void TicTacToe::startGame(char&)
+{
+	ClearScreen();
+	Welcome();
+	std::cout << std::endl << std::endl;
+	std::cout << std::setw(width)<< "1st Player \'X\'" << std::endl;
+	std::cout << std::setw(width)<< "2nd Player \'O\'" << std::endl;
+	this->gameFieldToString();
+	std::cout << std::setw(10) << "Player " << TicTacToe::playerOnMove << " Select Field: ";
+	field = readValue<int>();
+	if( field == 1 ) this->setField01( TicTacToe::player, TicTacToe::field01 );
+	if( field == 2 ) this->setField02( TicTacToe::player, TicTacToe::field02 );
+	if( field == 3 ) this->setField03( TicTacToe::player, TicTacToe::field03 );
+	if( field == 4 ) this->setField04( TicTacToe::player, TicTacToe::field04 );
+	if( field == 5 ) this->setField05( TicTacToe::player, TicTacToe::field05 );
+	if( field == 6 ) this->setField06( TicTacToe::player, TicTacToe::field06 );
+	if( field == 7 ) this->setField07( TicTacToe::player, TicTacToe::field07 );
+	if( field == 8 ) this->setField08( TicTacToe::player, TicTacToe::field08 );
+	if( field == 9 ) this->setField09( TicTacToe::player, TicTacToe::field09 );
+}
+
+void TicTacToe::setField01( int&, bool& )
+{
+	if( player == 1 && field01 == true )
+	{
+		this->playerFieldLine11.replace(1, 5, playerXline01);
+		this->playerFieldLine12.replace(1, 5, playerXline02);
+		this->playerFieldLine13.replace(1, 5, playerXline03);
+		this->playerFieldLine14.replace(1, 5, playerXline02);
+		this->playerFieldLine15.replace(1, 5, playerXline01);
+		this->field01 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2&& field01 == true )
+	{
+		this->playerFieldLine11.replace(1, 5, playerOline01);
+		this->playerFieldLine12.replace(1, 5, playerOline02);
+		this->playerFieldLine13.replace(1, 5, playerOline02);
+		this->playerFieldLine14.replace(1, 5, playerOline02);
+		this->playerFieldLine15.replace(1, 5, playerOline01);
+		this->field01 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field01 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField02( int&, bool& )
+{
+	if( player == 1 && field02 == true )
+	{
+		this->playerFieldLine11.replace(9, 5, playerXline01);
+		this->playerFieldLine12.replace(9, 5, playerXline02);
+		this->playerFieldLine13.replace(9, 5, playerXline03);
+		this->playerFieldLine14.replace(9, 5, playerXline02);
+		this->playerFieldLine15.replace(9, 5, playerXline01);
+		this->field02 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field02 == true )
+	{
+		this->playerFieldLine11.replace(9, 5, playerOline01);
+		this->playerFieldLine12.replace(9, 5, playerOline02);
+		this->playerFieldLine13.replace(9, 5, playerOline02);
+		this->playerFieldLine14.replace(9, 5, playerOline02);
+		this->playerFieldLine15.replace(9, 5, playerOline01);
+		this->field02 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field02 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField03( int&, bool& )
+{
+	if( player == 1 && field03 == true )
+	{
+		this->playerFieldLine11.replace(17, 5,playerXline01);
+		this->playerFieldLine12.replace(17, 5,playerXline02);
+		this->playerFieldLine13.replace(17, 5,playerXline03);
+		this->playerFieldLine14.replace(17, 5,playerXline02);
+		this->playerFieldLine15.replace(17, 5,playerXline01);
+		this->field03 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field03 == true )
+	{
+		this->playerFieldLine11.replace(17, 5,playerOline01);
+		this->playerFieldLine12.replace(17, 5,playerOline02);
+		this->playerFieldLine13.replace(17, 5,playerOline02);
+		this->playerFieldLine14.replace(17, 5,playerOline02);
+		this->playerFieldLine15.replace(17, 5,playerOline01);
+		this->field03 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field03 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+} 
+
+void TicTacToe::setField04( int &, bool& )
+{
+	if( player == 1 && field04 == true )
+	{
+		this->playerFieldLine06.replace(1, 5, playerXline01);
+		this->playerFieldLine07.replace(1, 5, playerXline02);
+		this->playerFieldLine08.replace(1, 5, playerXline03);
+		this->playerFieldLine09.replace(1, 5, playerXline02);
+		this->playerFieldLine10.replace(1, 5, playerXline01);
+		this->field04 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field04 == true )
+	{
+		this->playerFieldLine06.replace(1, 5, playerOline01);
+		this->playerFieldLine07.replace(1, 5, playerOline02);
+		this->playerFieldLine08.replace(1, 5, playerOline02);
+		this->playerFieldLine09.replace(1, 5, playerOline02);
+		this->playerFieldLine10.replace(1, 5, playerOline01);
+		this->field04 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field04 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField05( int&, bool& )
+{
+	if( player == 1 && field05 == true )
+	{
+		this->playerFieldLine06.replace(9, 5, playerXline01);
+		this->playerFieldLine07.replace(9, 5, playerXline02);
+		this->playerFieldLine08.replace(9, 5, playerXline03);
+		this->playerFieldLine09.replace(9, 5, playerXline02);
+		this->playerFieldLine10.replace(9, 5, playerXline01);
+		this->field05 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field05 == true )
+	{
+		this->playerFieldLine06.replace(9, 5, playerOline01);
+		this->playerFieldLine07.replace(9, 5, playerOline02);
+		this->playerFieldLine08.replace(9, 5, playerOline02);
+		this->playerFieldLine09.replace(9, 5, playerOline02);
+		this->playerFieldLine10.replace(9, 5, playerOline01);
+		this->field05 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field05 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField06( int&, bool& )
+{
+	if( player == 1 && field06 == true )
+	{
+		this->playerFieldLine06.replace(17, 5,playerXline01);
+		this->playerFieldLine07.replace(17, 5,playerXline02);
+		this->playerFieldLine08.replace(17, 5,playerXline03);
+		this->playerFieldLine09.replace(17, 5,playerXline02);
+		this->playerFieldLine10.replace(17, 5,playerXline01);
+		this->field06 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field06 == true )
+	{
+		this->playerFieldLine06.replace(17, 5,playerOline01);
+		this->playerFieldLine07.replace(17, 5,playerOline02);
+		this->playerFieldLine08.replace(17, 5,playerOline02);
+		this->playerFieldLine09.replace(17, 5,playerOline02);
+		this->playerFieldLine10.replace(17, 5,playerOline01);
+		this->field06 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field06 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField07( int&, bool& )
+{
+	if( player == 1 && field07 == true )
+	{
+		this->playerFieldLine01.replace(1, 5, playerXline01);
+		this->playerFieldLine02.replace(1, 5, playerXline02);
+		this->playerFieldLine03.replace(1, 5, playerXline03);
+		this->playerFieldLine04.replace(1, 5, playerXline02);
+		this->playerFieldLine05.replace(1, 5, playerXline01);
+		this->field07 = false;
+		this->checkForWi( );
+		return;
+	}
+	if( player == 2 && field07 == true )
+	{
+		this->playerFieldLine01.replace(1, 5, playerOline01);
+		this->playerFieldLine02.replace(1, 5, playerOline02);
+		this->playerFieldLine03.replace(1, 5, playerOline02);
+		this->playerFieldLine04.replace(1, 5, playerOline02);
+		this->playerFieldLine05.replace(1, 5, playerOline01);
+		this->field07 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field07 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField08( int &, bool& )
+{
+	if( player == 1 && field08 == true )
+	{
+		this->playerFieldLine01.replace(9, 5, playerXline01);
+		this->playerFieldLine02.replace(9, 5, playerXline02);
+		this->playerFieldLine03.replace(9, 5, playerXline03);
+		this->playerFieldLine04.replace(9, 5, playerXline02);
+		this->playerFieldLine05.replace(9, 5, playerXline01);
+		this->field08 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field08 == true )
+	{
+		this->playerFieldLine01.replace(9, 5, playerOline01);
+		this->playerFieldLine02.replace(9, 5, playerOline02);
+		this->playerFieldLine03.replace(9, 5, playerOline02);
+		this->playerFieldLine04.replace(9, 5, playerOline02);
+		this->playerFieldLine05.replace(9, 5, playerOline01);
+		this->field08 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field08 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::setField09( int&, bool& )
+{
+	if( player == 1 && field09 == true )
+	{
+		this->playerFieldLine01.replace(17, 5,playerXline01);
+		this->playerFieldLine02.replace(17, 5,playerXline02);
+		this->playerFieldLine03.replace(17, 5,playerXline03);
+		this->playerFieldLine04.replace(17, 5,playerXline02);
+		this->playerFieldLine05.replace(17, 5,playerXline01);
+		this->field09 = false;
+		this->checkForWi();
+		return;
+	}
+	if( player == 2 && field09 == true )
+	{
+		this->playerFieldLine01.replace(17, 5,playerOline01);
+		this->playerFieldLine02.replace(17, 5,playerOline02);
+		this->playerFieldLine03.replace(17, 5,playerOline02);
+		this->playerFieldLine04.replace(17, 5,playerOline02);
+		this->playerFieldLine05.replace(17, 5,playerOline01);
+		this->field09 = false;
+		this->checkForWi();
+		return;
+	}
+	if( field09 == false )
+	{
+		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press Enter   ";
+		std::cin.get();
+	}
+}
+
+void TicTacToe::checkForWi()
 {
 	if( (playerFieldLine01[ 1] == 'X' && playerFieldLine01[ 9] == 'X' && playerFieldLine01[17] == 'X') ||
 		(playerFieldLine06[ 1] == 'X' && playerFieldLine06[ 9] == 'X' && playerFieldLine06[17] == 'X') ||
@@ -80,344 +380,9 @@ void TicTacToe::checkForWi( bool &, bool &, bool &,
 	swapPlayer(player);
 }
 
-void TicTacToe::startGame(char &) const
+int TicTacToe::swapPlayer( int& )
 {
-	system("cls");
-	Welcome();
-	std::cout << std::endl << std::endl;
-	std::cout << std::setw(width)<< "1st Player \'X\'" << std::endl;
-	std::cout << std::setw(width)<< "2nd Player \'O\'" << std::endl;
-	this->gameFieldToString();
-	std::cout << std::setw(9) << "Player " << playerOnMove << " Select Field: ";
-}
-
-void TicTacToe::setField07( int & player, bool& )
-{
-	if(player == 1 && field07 == true)
-	{
-		this->playerFieldLine01.replace(1, 5, playerXline01);
-		this->playerFieldLine02.replace(1, 5, playerXline02);
-		this->playerFieldLine03.replace(1, 5, playerXline03);
-		this->playerFieldLine04.replace(1, 5, playerXline02);
-		this->playerFieldLine05.replace(1, 5, playerXline01);
-		this->field07 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field07 == true)
-	{
-		this->playerFieldLine01.replace(1, 5, playerOline01);
-		this->playerFieldLine02.replace(1, 5, playerOline02);
-		this->playerFieldLine03.replace(1, 5, playerOline02);
-		this->playerFieldLine04.replace(1, 5, playerOline02);
-		this->playerFieldLine05.replace(1, 5, playerOline01);
-		this->field07 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field07 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField08( int & player, bool& )
-{
-	if(player == 1 && field08 == true)
-	{
-		this->playerFieldLine01.replace(9, 5, playerXline01);
-		this->playerFieldLine02.replace(9, 5, playerXline02);
-		this->playerFieldLine03.replace(9, 5, playerXline03);
-		this->playerFieldLine04.replace(9, 5, playerXline02);
-		this->playerFieldLine05.replace(9, 5, playerXline01);
-		this->field08 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field08 == true)
-	{
-		this->playerFieldLine01.replace(9, 5, playerOline01);
-		this->playerFieldLine02.replace(9, 5, playerOline02);
-		this->playerFieldLine03.replace(9, 5, playerOline02);
-		this->playerFieldLine04.replace(9, 5, playerOline02);
-		this->playerFieldLine05.replace(9, 5, playerOline01);
-		this->field08 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field08 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField09( int & player, bool& )
-{
-	if(player == 1 && field09 == true)
-	{
-		this->playerFieldLine02.replace(17, 5,playerXline02);
-		this->playerFieldLine03.replace(17, 5,playerXline03);
-		this->playerFieldLine04.replace(17, 5,playerXline02);
-		this->playerFieldLine05.replace(17, 5,playerXline01);
-		this->playerFieldLine01.replace(17, 5,playerXline01);
-		this->field09 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field09 == true)
-	{
-		this->playerFieldLine01.replace(17, 5,playerOline01);
-		this->playerFieldLine02.replace(17, 5,playerOline02);
-		this->playerFieldLine03.replace(17, 5,playerOline02);
-		this->playerFieldLine04.replace(17, 5,playerOline02);
-		this->playerFieldLine05.replace(17, 5,playerOline01);
-		this->field09 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field09 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-	
-void TicTacToe::setField04( int & player, bool& )
-{
-	if(player == 1 && field04 == true)
-	{
-		this->playerFieldLine06.replace(1, 5, playerXline01);
-		this->playerFieldLine07.replace(1, 5, playerXline02);
-		this->playerFieldLine08.replace(1, 5, playerXline03);
-		this->playerFieldLine09.replace(1, 5, playerXline02);
-		this->playerFieldLine10.replace(1, 5, playerXline01);
-		this->field04 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field04 == true)
-	{
-		this->playerFieldLine06.replace(1, 5, playerOline01);
-		this->playerFieldLine07.replace(1, 5, playerOline02);
-		this->playerFieldLine08.replace(1, 5, playerOline02);
-		this->playerFieldLine09.replace(1, 5, playerOline02);
-		this->playerFieldLine10.replace(1, 5, playerOline01);
-		this->field04 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field04 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField05( int & player, bool & )
-{
-	if(player == 1 && field05 == true)
-	{
-		this->playerFieldLine06.replace(9, 5, playerXline01);
-		this->playerFieldLine07.replace(9, 5, playerXline02);
-		this->playerFieldLine08.replace(9, 5, playerXline03);
-		this->playerFieldLine09.replace(9, 5, playerXline02);
-		this->playerFieldLine10.replace(9, 5, playerXline01);
-		this->field05 = false;
-		this->checkForWi( field01, field02, field03,
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field05 == true)
-	{
-		this->playerFieldLine06.replace(9, 5, playerOline01);
-		this->playerFieldLine07.replace(9, 5, playerOline02);
-		this->playerFieldLine08.replace(9, 5, playerOline02);
-		this->playerFieldLine09.replace(9, 5, playerOline02);
-		this->playerFieldLine10.replace(9, 5, playerOline01);
-		this->field05 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field05 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField06( int & player, bool & )
-{
-	if(player == 1 && field06 == true)
-	{
-		this->playerFieldLine06.replace(17, 5,playerXline01);
-		this->playerFieldLine07.replace(17, 5,playerXline02);
-		this->playerFieldLine08.replace(17, 5,playerXline03);
-		this->playerFieldLine09.replace(17, 5,playerXline02);
-		this->playerFieldLine10.replace(17, 5,playerXline01);
-		this->field06 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field06 == true)
-	{
-		this->playerFieldLine06.replace(17, 5,playerOline01);
-		this->playerFieldLine07.replace(17, 5,playerOline02);
-		this->playerFieldLine08.replace(17, 5,playerOline02);
-		this->playerFieldLine09.replace(17, 5,playerOline02);
-		this->playerFieldLine10.replace(17, 5,playerOline01);
-		this->field06 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field06 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField01( int & player, bool & )
-{
-	if(player == 1 && field01 == true)
-	{
-		this->playerFieldLine11.replace(1, 5, playerXline01);
-		this->playerFieldLine12.replace(1, 5, playerXline02);
-		this->playerFieldLine13.replace(1, 5, playerXline03);
-		this->playerFieldLine14.replace(1, 5, playerXline02);
-		this->playerFieldLine15.replace(1, 5, playerXline01);
-		this->field01 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2&& field01 == true)
-	{
-		this->playerFieldLine11.replace(1, 5, playerOline01);
-		this->playerFieldLine12.replace(1, 5, playerOline02);
-		this->playerFieldLine13.replace(1, 5, playerOline02);
-		this->playerFieldLine14.replace(1, 5, playerOline02);
-		this->playerFieldLine15.replace(1, 5, playerOline01);
-		this->field01 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field01 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField02( int & player, bool& )
-{
-	if(player == 1 && field02 == true)
-	{
-		this->playerFieldLine11.replace(9, 5, playerXline01);
-		this->playerFieldLine12.replace(9, 5, playerXline02);
-		this->playerFieldLine13.replace(9, 5, playerXline03);
-		this->playerFieldLine14.replace(9, 5, playerXline02);
-		this->playerFieldLine15.replace(9, 5, playerXline01);
-		this->field02 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field02 == true)
-	{
-		this->playerFieldLine11.replace(9, 5, playerOline01);
-		this->playerFieldLine12.replace(9, 5, playerOline02);
-		this->playerFieldLine13.replace(9, 5, playerOline02);
-		this->playerFieldLine14.replace(9, 5, playerOline02);
-		this->playerFieldLine15.replace(9, 5, playerOline01);
-		this->field02 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field02 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-}
-
-void TicTacToe::setField03( int & player, bool & )
-{
-	if(player == 1 && field03 == true)
-	{
-		this->playerFieldLine11.replace(17, 5,playerXline01);
-		this->playerFieldLine12.replace(17, 5,playerXline02);
-		this->playerFieldLine13.replace(17, 5,playerXline03);
-		this->playerFieldLine14.replace(17, 5,playerXline02);
-		this->playerFieldLine15.replace(17, 5,playerXline01);
-		this->field03 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(player == 2 && field03 == true)
-	{
-		this->playerFieldLine11.replace(17, 5,playerOline01);
-		this->playerFieldLine12.replace(17, 5,playerOline02);
-		this->playerFieldLine13.replace(17, 5,playerOline02);
-		this->playerFieldLine14.replace(17, 5,playerOline02);
-		this->playerFieldLine15.replace(17, 5,playerOline01);
-		this->field03 = false;
-		this->checkForWi( field01, field02, field03, 
-						  field04, field05, field06, winner,
-						  field07, field08, field09, player );
-		return;
-	}
-	if(field03 == false)
-	{
-		std::cout << std::endl << std::setw(width02) << "Field already in use! Try again!   Press any Key ";
-		std::cin.ignore();
-		std::cin.get();
-	}
-} 
-
-int TicTacToe::swapPlayer( int & player)
-{
-	switch(player)
+	switch( player )
 	{
 		case 1:
 		player = 2;
@@ -434,15 +399,15 @@ int TicTacToe::swapPlayer( int & player)
 
 void TicTacToe::gameOver() const
 {
-	system("cls");
+	ClearScreen();
 	Welcome();
 	std::cout << std::endl << std::endl << std::endl << std::endl;
 	this->gameFieldToString();
-	if(winner)
+	if( winner )
 	{
-		std::cout << std::setw(45)<< "Player " << playerOnMove << " Wins!" << std::endl << std::endl;
+		std::cout << std::setw(46)<< "Player " << playerOnMove << " Wins!" << std::endl << std::endl;
 	}
-	std::cout << std::setw(50) << "GAME OVER!"<< std::endl;
+	std::cout << std::setw(51) << "GAME OVER!"<< std::endl;
 }
 
 TicTacToe::~TicTacToe()

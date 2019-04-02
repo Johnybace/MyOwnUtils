@@ -305,59 +305,21 @@ SelectFunction::SelectFunction()
 		break;
 
 	case 20:
-		int field{}, player{1};
 		char playerOnMove {'X'};
 		do
 		{
 			game.startGame(playerOnMove);
-			std::cin >> field;
-			if (field == 7)
-			{
-				game.setField07(player, game.field07 );
-			}
-			if (field == 8)
-			{
-				game.setField08(player, game.field08 );
-			}
-			if (field == 9)
-			{
-				game.setField09(player, game.field09 );
-			}
-			if (field == 4)
-			{
-				game.setField04(player, game.field04 );
-			}
-			if (field == 5)
-			{
-				game.setField05(player, game.field05 );
-			}
-			if (field == 6)
-			{
-				game.setField06(player, game.field06 );
-			}
-			if (field == 1)
-			{
-				game.setField01(player, game.field01 );
-			}
-			if (field == 2)
-			{
-				game.setField02(player, game.field02 );
-			}
-			if (field == 3)
-			{
-				game.setField03(player, game.field03 );
-			}
-		} while(game.field01 == true || 
-				game.field02 == true ||
-				game.field03 == true ||
-				game.field04 == true ||
-				game.field05 == true ||
-				game.field06 == true ||
-				game.field07 == true ||
-				game.field08 == true ||
-				game.field09 == true );
+
+		}while( game.field01 == true || 
+	    		game.field02 == true ||
+	    		game.field03 == true ||
+	    		game.field04 == true ||
+	    		game.field05 == true ||
+	    		game.field06 == true ||
+	    		game.field07 == true ||
+	    		game.field08 == true ||
+	    		game.field09 == true );
 		game.gameOver();
-		std::cin.ignore();
 		std::cin.get();
 		ClearScreen();
 		SelectFunction();
