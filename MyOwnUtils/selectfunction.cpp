@@ -308,7 +308,9 @@ SelectFunction::SelectFunction()
 		char playerOnMove {'X'};
 		do
 		{
-			game.startGame(playerOnMove);
+			game.player;
+			if( game.player == 2 )game.computerLogic( game.player );
+			if( game.player == 1 )game.startGame( playerOnMove );
 
 		}while( game.field01 == true || 
 	    		game.field02 == true ||

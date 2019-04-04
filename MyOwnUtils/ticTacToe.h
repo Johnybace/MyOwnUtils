@@ -8,7 +8,7 @@ class TicTacToe
 private:
 	char playerOnMove{'X'};
 
-	int  width{17}, width01{58}, width02{52}, player{1};
+	int  width{17}, width01{58}, width02{52};
 
 	std::string  playerFieldLine01 {"       |       |       "}	
 				,playerFieldLine02 {"       |       |       "}		
@@ -33,13 +33,14 @@ private:
 				,playerOline02	   {"O   O"};
 
 public:
-	int field{};
-
+	int field{}, player{1}, counter{};
+	
 	bool field01{true}, field02{true}, field03{true}, field04{true}
 		,field05{true}, field06{true}, field07{true}, field08{true}
-		,field09{true}, winner{false};
+		,field09{true}, winner{false}, countbool{true};
 
-	void startGame(char &playerOnMove) ;
+	void startGame(char &playerOnMove);
+	void computerLogic( int &player);
 	void gameOver() const;
 	void setField07(int  &player,  bool & );
 	void setField08(int  &player,  bool & );
