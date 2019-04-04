@@ -324,10 +324,53 @@ void TicTacToe::computerLogic(int&  )
 		this->setField05( TicTacToe::player, TicTacToe::field05 );
 		return;
 	}
-	if( field01 == false && field04 == true )
+	if ( counter == 2)
 	{
-		this->setField04( TicTacToe::player, TicTacToe::field04 );
+		if( field06 == false && field01 == false )
+		{
+			this->setField03( TicTacToe::player, TicTacToe::field03 );
+			return;
+		}
+		if( field06 == false && field07 == false )
+		{
+			this->setField09( TicTacToe::player, TicTacToe::field09 );
+			return;
+		}
+		if( field02 == false && field07 == false )
+		{
+			this->setField01( TicTacToe::player, TicTacToe::field01 );
+			return;
+		}
+		if( field02 == false && field09 == false )
+		{
+			this->setField03( TicTacToe::player, TicTacToe::field03 );
+			return;
+		}
+		if( field04 == false && field03 == false )
+		{
+			this->setField01( TicTacToe::player, TicTacToe::field01 );
+			return;
+		}
+		if( field04 == false && field09 == false )
+		{
+			this->setField07( TicTacToe::player, TicTacToe::field07 );
+			return;
+		}
+		if( field08 == false && field01 == false )
+		{
+			this->setField07( TicTacToe::player, TicTacToe::field07 );
+			return;
+		}
+		if( field08 == false && field03 == false )
+		{
+			this->setField09( TicTacToe::player, TicTacToe::field09 );
+			return;
+		}
+		if ( playerFieldLine06[ 9] == 'X' && field09 == false && field07 == true )
+		{
+		this->setField07( TicTacToe::player, TicTacToe::field07 );
 		return;
+		}
 	}
 	if( field07 == false && field08 == true )
 	{
@@ -342,26 +385,6 @@ void TicTacToe::computerLogic(int&  )
 	if( field03 == false && field02 == true )
 	{
 		this->setField02( TicTacToe::player, TicTacToe::field02 );
-		return;
-	}
-	if( field == 6 && field03 == true && counter <=2 )
-	{
-		this->setField03( TicTacToe::player, TicTacToe::field03 );
-		return;
-	}
-	if( field == 2 && field01 == true && counter <=2 )
-	{
-		this->setField01( TicTacToe::player, TicTacToe::field01 );
-		return;
-	}
-	if( field == 4 && field07 == true && counter <=2 )
-	{
-		this->setField07( TicTacToe::player, TicTacToe::field07 );
-		return;
-	}
-	if( field == 8 && field09 == true && counter <=2 )
-	{
-		this->setField09( TicTacToe::player, TicTacToe::field09 );
 		return;
 	}
 	if( field01 == false && field07 == true )
@@ -424,8 +447,6 @@ void TicTacToe::computerLogic(int&  )
 		this->setField07( TicTacToe::player, TicTacToe::field07 );
 		return;
 	}
-	////////////////////////////////////////
-	////////// what ever remains ///////////
 	if ( field01 == true )
 	{
 		this->setField01( TicTacToe::player, TicTacToe::field01 );
@@ -454,11 +475,6 @@ void TicTacToe::computerLogic(int&  )
 	if ( field06 == true )
 	{
 		this->setField06( TicTacToe::player, TicTacToe::field06 );
-		return;
-	}
-	if ( field07 == true )
-	{
-		this->setField07( TicTacToe::player, TicTacToe::field07 );
 		return;
 	}
 	if ( field08 == true )
