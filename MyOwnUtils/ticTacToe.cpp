@@ -368,8 +368,13 @@ void TicTacToe::computerLogic(int&  )
 		}
 		if ( playerFieldLine06[ 9] == 'X' && field09 == false && field07 == true )
 		{
-		this->setField07( TicTacToe::player, TicTacToe::field07 );
-		return;
+			this->setField07( TicTacToe::player, TicTacToe::field07 );
+			return;
+		}
+		if( field08 == false && field06 == false )
+		{
+			this->setField09( TicTacToe::player, TicTacToe::field09 );
+			return;
 		}
 	}
 	if( field07 == false && field08 == true )
