@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+#include <Windows.h>
+
 #include "airclass.h"
 #include "cinclearbuffer.cpp"
 #include "welcome.h"
@@ -12,12 +14,10 @@
 
 SelectFunction::SelectFunction()
 {
-	static bool isPrintet{ false };
-
 	double dumyForTubeAva{}, dumyForTubeAvb{};
 
 	std::string dumyForWhat {};
-
+	
 	static std::string project {};
 
 	static std::vector <TubeProtocol> objectCollectionTubePr {};
@@ -305,30 +305,14 @@ SelectFunction::SelectFunction()
 		break;
 
 	case 20:
-		char playerOnMove {'X'};
-		do
-		{
-			game.player;
-			if( game.player == 2 )game.computerLogic( game.player );
-			if( game.player == 1 )game.startGame( playerOnMove );
-
-		}while( game.field01 == true || 
-	    		game.field02 == true ||
-	    		game.field03 == true ||
-	    		game.field04 == true ||
-	    		game.field05 == true ||
-	    		game.field06 == true ||
-	    		game.field07 == true ||
-	    		game.field08 == true ||
-	    		game.field09 == true );
-		game.gameOver();
+		game.setModus(game.modus);
+		game.startGame(game.modus);
 		std::cin.get();
 		ClearScreen();
 		SelectFunction();
 		break;
 	}
 }
-
 SelectFunction::~SelectFunction()
 {
 }

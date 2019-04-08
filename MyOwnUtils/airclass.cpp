@@ -194,7 +194,7 @@ std::string TubeProtocol::toString() const
     std::stringstream ss;
 	
 	ss << std::setprecision(0) << std::fixed << std::setw(26) << "Measured Point:        "	<< std::setw(1)  << " " << std::setw(1)  << this->getinsertMeasurementPoint()	<< std::endl	<< std::endl;
-	ss										 << std::setw(26) << "Measured Speeds        "	<< std::setw(3)  <<" = "<< this->speedMeasurementsCollectionToString()			<< std::endl;
+	ss										 << std::setw(26) << "Measured Speeds        "	<< std::setw(3)  <<" = "				 << this->speedMeasurementsCollectionToString()			<< std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(18) << "Calculated Data"			<< std::endl;								
 	ss << std::setprecision(0) << std::fixed << std::setw(21) << "Setpoint AirVolume"		<< std::setw( 7) << "=" << std::setw(10) << this->getSetPointAirVolume()		<< " m3/h"		<< std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(11) << "Diameter"					<< std::setw(17) << "=" << std::setw(10) << this->getDiameter()					<< " mm"		<< std::endl;

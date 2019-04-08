@@ -6,7 +6,7 @@
 
 Welcome::Welcome()
 {
-			std::cout<< std::endl	<< std::setw(65)<< std::right << firstLine << std::endl
+	   std::cout	 << std::endl	<< std::setw(65)<< std::right << firstLine << std::endl
 	<< std::setw(55) << secondLine	<< std::endl
 	<< std::setw(57) << thirdLine	<< std::endl	<< std::endl
 	<< std::setw(49) << Adress01	<< std::endl

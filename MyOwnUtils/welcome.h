@@ -6,11 +6,11 @@
 class Welcome
 {
 private:
-	std::string Adress03    { "XXXXXXXXXXXX" }
-				,Adress01   { "XXXXXXXXXXXXX" }
+	std::string Adress03    { "8052 Zuerich" }
+				,Adress01   { "MAX KELLER AG" }
 				,secondLine { "Ventilation-System" }
-				,telefon    { "XXXXXXXXXXXXXXXXXXX" }
-				,Adress02   { "XXXXXXXXXXXXXXXXXXXXXXX" }
+				,telefon    { "TEL. 044/ 302 44 06" }
+				,Adress02   { "Schaffhauserstrasse 466" }
 				,thirdLine  { "Created by_   Johnybace" }
 				,firstLine  { "A simply tool to calculate Airvolume in" };
 
