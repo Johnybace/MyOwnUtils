@@ -1,19 +1,15 @@
-#include <algorithm>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
 
-#include <windows.h>
-
-#include "welcome.h"
 #include "ticTacToe.h"
+#include "welcome.h"
 
 #include "cinclearbuffer.cpp"
 
 TicTacToe::TicTacToe()
-:playerOnMove{'X'}, nextPlayer{'O'}, firstPlayerOnScreen{'X'}, secondPlayerOnScreen{'O'}
+:playerOnMove{'X'}, firstPlayerOnScreen{'X'}, secondPlayerOnScreen{'O'}
 ,width{17}, width01{58}, width02{52}
-,player{1}, counter{0}, field{0}, sleeptime{2000}
+,player{1}, counter{0}, field{0}
 ,field01{true}, field02{true}, field03{true}, field04{true}
 ,field05{true}, field06{true}, field07{true}, field08{true}
 ,field09{true}, winner{false}, allReadyDone{false}, countSwapPlayer{false}
@@ -64,11 +60,10 @@ void TicTacToe::emptyField() const
 	std::cout << std::setw(width01) << playerFieldLine15 << std::endl;
 }
 
-std::string TicTacToe::fieldToScreen() const
+void TicTacToe::fieldToScreen() const
 {
 	ClearScreen();
 	Welcome();
-	std::stringstream ss;
 	std::cout << std::endl << std::endl;
 	std::cout << std::setw(width)<< "1st Player \'" << firstPlayerOnScreen << "\'" << std::endl;
 	std::cout << std::setw(width)<< "2nd Player \'" << secondPlayerOnScreen   << "\'" << std::endl;
@@ -81,7 +76,6 @@ std::string TicTacToe::fieldToScreen() const
 	{
 		std::cout << std::setw(10) << "Player " << playerOnMove << " Select Field: ";
 	}
-	return ss.str();
 }
 
 int TicTacToe::setModus(int &modus)
@@ -100,7 +94,6 @@ int TicTacToe::setModus(int &modus)
 				  << std::setw( 7)	<< "[4]" << std::setw(44) << "1st Player Computer \'O\' vs 2nd Player \'X\'" << std::endl
 				  << std::setw( 7)	<< "[5]" << std::setw(35) << "1st Player \'X\' vs 2nd Player \'O\'" << std::endl
 				  << std::setw( 7)	<< "[6]" << std::setw(35) << "1st Player \'O\' vs 2nd Player \'X\'" << std::endl
-				  //<< std::setw( 7)	<< "[3]" << std::setw(29) << "Computer\'X\' vs Computer\'O\'" << std::endl	  
 				  << std::endl
 				  << std::setw(17)	<< "Choose Modus: ";
 		modus = readValue<int>();
@@ -137,7 +130,7 @@ void TicTacToe::startGame( int &modus )
 			this->secondPlayerOnScreen = 'X';
 			if( !countSwapPlayer )
 			{
-				this->swapPlayer( player, modus );
+				this->swapPlayer( player );
 				countSwapPlayer = true; 
 			}
 			this->realPlayerSelectField();
@@ -152,7 +145,7 @@ void TicTacToe::startGame( int &modus )
 			this->secondPlayerOnScreen = 'X';
 			if( !countSwapPlayer )
 			{
-				this->swapPlayer( player, modus );
+				this->swapPlayer( player );
 				countSwapPlayer = true; 
 			}
 			if( playerOnMove =='O' && !allReadyDone ) this->computerLogicO( playerOnMove );
@@ -172,45 +165,11 @@ void TicTacToe::startGame( int &modus )
 			this->secondPlayerOnScreen = 'X';
 			if( !countSwapPlayer )
 			{
-				this->swapPlayer( player, modus );
+				this->swapPlayer( player );
 				countSwapPlayer = true; 
 			}
 			this->realPlayerSelectField();
 		}
-
-		//Under Constuction
-		/*
-		if( modus == 33 )
-		{
-			if ( counter == 0 )
-			{
-				for( int i = 1; i <= 9; ++i )
-				{
-					this->fieldToScreen();
-					std::cout << " " << i;
-					this->playerSetField( playerOnMove, i );
-					Sleep( sleeptime );
-					this->fieldToScreen();
-					this->computerLogic( playerOnMove );
-					Sleep( sleeptime );
-
-					for( int j = 1; j <= 9; j++)
-					{
-						if( j == i) j++;
-						this->fieldToScreen();
-						std::cout << " " << j;
-						this->playerSetField( playerOnMove, j );
-						Sleep( sleeptime );
-						break;
-					}
-				break;
-				}		
-			}	
-			this->fieldToScreen();
-			this->computerLogic( playerOnMove );
-			Sleep( sleeptime );
-		}
-		*/
 	}
 	this->gameOver();
 }
@@ -265,12 +224,12 @@ void TicTacToe::computerLogicX( char &playerOnMove )
 	}
 	if( playerFieldLine06[ 1] == 'X' && playerFieldLine06[17] == 'X' && field05 )
 	{
-		this->setField05( TicTacToe::playerOnMove, TicTacToe::field04 );
+		this->setField05( TicTacToe::playerOnMove, TicTacToe::field05 );
 		return;
 	}
 	if( playerFieldLine06[ 9] == 'X' && playerFieldLine06[17] == 'X' && field04 )
 	{
-		this->setField04( TicTacToe::playerOnMove, TicTacToe::field07 );
+		this->setField04( TicTacToe::playerOnMove, TicTacToe::field04 );
 		return;
 	}
 	//////////  7-8-9 //////////
@@ -286,7 +245,7 @@ void TicTacToe::computerLogicX( char &playerOnMove )
 	}
 	if( playerFieldLine01[ 9] == 'X' && playerFieldLine01[17] == 'X' && field07 )
 	{
-		this->setField07( TicTacToe::playerOnMove, TicTacToe::field08 );
+		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 		return;
 	}
 	////////// 1-4-7 //////////
@@ -397,12 +356,12 @@ void TicTacToe::computerLogicO( char &playerOnMove )
 	}
 	if( playerFieldLine06[ 2] == 'O' && playerFieldLine06[18] == 'O' && field05 )
 	{
-		this->setField05( TicTacToe::playerOnMove, TicTacToe::field04 );
+		this->setField05( TicTacToe::playerOnMove, TicTacToe::field05 );
 		return;
 	}
 	if( playerFieldLine06[10] == 'O' && playerFieldLine06[18] == 'O' && field04 )
 	{
-		this->setField04( TicTacToe::playerOnMove, TicTacToe::field07 );
+		this->setField04( TicTacToe::playerOnMove, TicTacToe::field04 );
 		return;
 	}
 	////////// 7-8-9 //////////
@@ -418,7 +377,7 @@ void TicTacToe::computerLogicO( char &playerOnMove )
 	}
 	if( playerFieldLine01[10] == 'O' && playerFieldLine01[18] == 'O' && field07  )
 	{
-		this->setField07( TicTacToe::playerOnMove, TicTacToe::field08 );
+		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 		return;
 	}
 	////////// 1-4-7 //////////
@@ -512,37 +471,32 @@ void TicTacToe::computerLogic(char & )
 	}
 	if( counter == 2)
 	{
-		if( playerFieldLine01[ 1] == 'X' && playerFieldLine06[10] == 'O' && field01 )
+		if( !field05 && !field01 && field07 )
 		{
-			this->setField01( TicTacToe::playerOnMove, TicTacToe::field07 );
+			this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 			return;
 		}
-		if( playerFieldLine06[ 9] == 'X' && !field03 && field09 )
+		if( !field05 && !field02 && field09 )
 		{
-			this->setField09( TicTacToe::playerOnMove, TicTacToe::field07 );
+			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
 			return;
 		}
-		if( playerFieldLine06[ 9] == 'X' && !field07 && field01 )
+		if( !field05 && !field03 && field09 )
 		{
-			this->setField01( TicTacToe::playerOnMove, TicTacToe::field07 );
+			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
 			return;
 		}
-		if( playerFieldLine06[ 9] == 'X' && !field04 && field09 )
+		if( !field05 && !field04 && field09 )
 		{
-			this->setField09( TicTacToe::playerOnMove, TicTacToe::field07 );
+			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
 			return;
 		}
-		if( playerFieldLine06[10] == 'O' && !field02 && field09 )
+		if( !field05 && !field07 && field01 )
 		{
-			this->setField09( TicTacToe::playerOnMove, TicTacToe::field07 );
+			this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
 			return;
 		}
-		if( playerFieldLine06[10] == 'O' && !field04 && field09 )
-		{
-			this->setField09( TicTacToe::playerOnMove, TicTacToe::field07 );
-			return;
-		}
-		if( playerFieldLine06[ 9] == 'X' && !field09 && field07 )
+		if( !field05 && !field09 && field07 )
 		{
 			this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 			return;
@@ -550,9 +504,14 @@ void TicTacToe::computerLogic(char & )
 	}
 	if( counter == 3 )
 	{
-		if( !field01 && !field05 && !field09 && field04 )
+		if( !field02 && !field07 && field01 )
 		{
-			this->setField04( TicTacToe::playerOnMove, TicTacToe::field03 );
+			this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
+			return;
+		}
+		if( !field01 && !field09 && field02 )
+		{
+			this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
 			return;
 		}
 		if( !field06 && !field01 && field03 )
@@ -563,11 +522,6 @@ void TicTacToe::computerLogic(char & )
 		if( !field06 && !field07 && field09 )
 		{
 			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
-			return;
-		}
-		if( !field02 && !field07 && field01 )
-		{
-			this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
 			return;
 		}
 		if( !field02 && !field09 && field03 )
@@ -595,38 +549,23 @@ void TicTacToe::computerLogic(char & )
 			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
 			return;
 		}
-		if( playerFieldLine06[10] == 'O' && !field09 && field07 )
-		{
-			this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
-			return;
-		}
-		if( !field08 && !field06 )
+		if( !field08 && !field06 && field09 )
 		{
 			this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
+			return;
+		}
+		if( !field07 && !field03 && field08 )
+		{
+			this->setField08( TicTacToe::playerOnMove, TicTacToe::field08 );
 			return;
 		}
 	}
 	if( counter == 5 )
 	{
-		if( playerOnMove == 'O' )
+		if( !field01 && !field05 && !field02 && !field04 && !field09 && field07 )
 		{
-			if( playerFieldLine11[ 2] == 'O' && playerFieldLine06[10] == 'O' && 
-				playerFieldLine11[ 9] == 'X' && playerFieldLine06[ 1] == 'X' &&
-				playerFieldLine01[17] == 'X' )
-			{
-				this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
-				return;
-			}
-		}
-		if( playerOnMove == 'X' )
-		{
-			if( playerFieldLine11[ 1] == 'X' && playerFieldLine06[ 9] == 'X' && 
-				playerFieldLine11[10] == 'O' && playerFieldLine06[ 2] == 'O' &&
-				playerFieldLine01[18] == 'O' )
-			{
-				this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
-				return;
-			}
+			this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
+			return;
 		}
 	}
 	if( !field07 && field08 )
@@ -634,19 +573,9 @@ void TicTacToe::computerLogic(char & )
 		this->setField08( TicTacToe::playerOnMove, TicTacToe::field08 );
 		return;
 	}
-	if( playerOnMove == 'O' && !field09 && field06 )
-	{
-		this->setField06( TicTacToe::playerOnMove, TicTacToe::field06 );
-		return;
-	}
 	if( !field03 && field02 )
 	{
 		this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
-		return;
-	}
-	if( !field01 && field07 )
-	{
-		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 		return;
 	}
 	if( !field07 && field09	)
@@ -664,59 +593,9 @@ void TicTacToe::computerLogic(char & )
 		this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
 		return;
 	}
-	if( !field08 && !field03 && field09 && counter <=3 )
-	{
-		this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
-		return;
-	}
-	if( !field08 && !field01 && field07 && counter <=4 )
-	{
-		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
-		return;
-	}
-	if( !field06 && !field01 && field02 && counter <=5 )
-	{
-		this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
-		return;
-	}
-	if( !field06 && !field07 && field09 && counter <=5 )
-	{
-		this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
-		return;
-	}
-	if( !field02 && !field07 && field01 && counter <=4 )
-	{
-		this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
-		return;
-	}
-	if( !field02 && !field09 && field03 && counter <=4 )
-	{
-		this->setField03( TicTacToe::playerOnMove, TicTacToe::field03 );
-		return;
-	}
-	if( !field04 && !field03 && field01 && counter <=4 )
-	{
-		this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
-		return;
-	}
-	if( !field04 && !field09 && field07 && counter <=4 )
-	{
-		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
-		return;
-	}
 	if( field01 )
 	{
 		this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
-		return;
-	}
-	if( field02 )
-	{
-		this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
-		return;
-	}
-	if( field03 )
-	{
-		this->setField03( TicTacToe::playerOnMove, TicTacToe::field03 );
 		return;
 	}
 	if( field04 )
@@ -724,24 +603,14 @@ void TicTacToe::computerLogic(char & )
 		this->setField04( TicTacToe::playerOnMove, TicTacToe::field04 );
 		return;
 	}
-	if( field05 )
-	{
-		this->setField05( TicTacToe::playerOnMove, TicTacToe::field05 );
-		return;
-	}
 	if( field06 )
 	{
 		this->setField06( TicTacToe::playerOnMove, TicTacToe::field06 );
 		return;
 	}
-	if( field08 )
+	if( field07 )
 	{
-		this->setField08( TicTacToe::playerOnMove, TicTacToe::field08 );
-		return;
-	}
-	if( field09 )
-	{
-		this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
+		this->setField07( TicTacToe::playerOnMove, TicTacToe::field07 );
 		return;
 	}
 }
@@ -1060,88 +929,27 @@ void TicTacToe::checkForWi()
 		winner = true;
 		return;
 	}
-	this->swapPlayer( player, modus );
+	this->swapPlayer( player );
 }
 
-int TicTacToe::swapPlayer( int &player, int &modus )
+int TicTacToe::swapPlayer( int &player )
 {
 	if( player == 1 )
 	{
-		switch( modus )
-		{
-			case 1:
-			player = 2;
-			playerOnMove = 'O';
-			break;
-
-			case 2:
-			player = 2;
-			playerOnMove = 'O';
-			break;
-
-			case 3:
-			player = 2;
-			playerOnMove = 'O';
-			break;
-
-			case 4:
-			player = 2;
-			playerOnMove = 'O';
-			break;
-
-			case 5:
-			player = 2;
-			playerOnMove = 'O';
-			break;
-
-			case 6:
-			player = 2;
-			playerOnMove = 'O';
-			break;	
-		}
+		player = 2;
+		playerOnMove = 'O';
 		return playerOnMove;
 	}
-
 	if( player == 2 )
 	{
-		switch( modus )
-		{
-			case 1:
-			player = 1;
-			playerOnMove = 'X';
-			break;
-
-			case 2:
-			player = 1;
-			playerOnMove = 'X';
-			break;
-
-			case 3:
-			player = 1;
-			playerOnMove = 'X';
-			break;
-
-			case 4:
-			player = 1;
-			playerOnMove = 'X';
-			break;
-
-			case 5:
-			player = 1;
-			playerOnMove = 'X';
-			break;
-
-			case 6:
-			player = 1;
-			playerOnMove = 'X';
-			break;	
-		}
+		player = 1;
+		playerOnMove = 'X';
 		return playerOnMove;
 	}
 	return playerOnMove;
 }
 
-void TicTacToe::gameOver() 
+void TicTacToe::gameOver() const
 {
 	this->fieldToScreen();
 	if( winner )
@@ -1149,16 +957,6 @@ void TicTacToe::gameOver()
 		std::cout << std::setw(46)<< "Player " << playerOnMove << " Wins!" << std::endl << std::endl;
 	}
 	std::cout << std::setw(51) << "GAME OVER!"<< std::endl;
-
-//	if( modus == 33 )
-//	{
-//		counter = 0;
-//		TicTacToe * game = new TicTacToe;
-//		delete game;
-//		this->startGame();
-//		this->~TicTacToe();
-//		TicTacToe();
-//	}
 }
 
 TicTacToe::~TicTacToe()
