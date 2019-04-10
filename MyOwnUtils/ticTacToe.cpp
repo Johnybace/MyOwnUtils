@@ -115,7 +115,6 @@ void TicTacToe::startGame( int &modus )
 			if( playerOnMove =='O' && !allReadyDone ) this->computerLogicX( playerOnMove );
 			if( playerOnMove =='O' && !allReadyDone ) this->computerLogic( playerOnMove );
 		}
-
 		if( modus == 2 )
 		{
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicX( playerOnMove );
@@ -123,7 +122,6 @@ void TicTacToe::startGame( int &modus )
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogic( playerOnMove );
 			this->realPlayerSelectField();
 		}
-
 		if( modus == 3 )
 		{
 			this->firstPlayerOnScreen = 'O';
@@ -138,7 +136,6 @@ void TicTacToe::startGame( int &modus )
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicO( playerOnMove );
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogic( playerOnMove );
 		}
-
 		if( modus == 4 )
 		{
 			this->firstPlayerOnScreen = 'O';
@@ -153,12 +150,10 @@ void TicTacToe::startGame( int &modus )
 			if( playerOnMove =='O' && !allReadyDone ) this->computerLogic( playerOnMove );
 			this->realPlayerSelectField();
 		}
-
 		if( modus == 5 )
 		{
 			this->realPlayerSelectField();
 		}
-
 		if( modus == 6 )
 		{
 			this->firstPlayerOnScreen = 'O';
@@ -509,7 +504,14 @@ void TicTacToe::computerLogic(char & )
 			this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
 			return;
 		}
-		if( !field01 && !field09 && field02 )
+		if( playerFieldLine11[ 1] == 'X' && playerFieldLine06[10] == 'O' &&
+			playerFieldLine01[17] == 'X' && field02 )
+		{
+			this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
+			return;
+		}
+		if( playerFieldLine11[ 2] == 'O' && playerFieldLine06[ 9] == 'X' &&
+			playerFieldLine01[18] == 'O' && field02 )
 		{
 			this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
 			return;
