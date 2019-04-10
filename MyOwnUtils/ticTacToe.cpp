@@ -89,8 +89,8 @@ int TicTacToe::setModus(int &modus)
 		std::cout << std::endl << std::endl
 				  << std::setw(18) << "Modus Selection" << std::endl << std::endl
 				  << std::setw( 7)	<< "[1]" << std::setw(44) << "1st Player \'X\' vs 2nd Player Computer \'O\'" << std::endl
-				  << std::setw( 7)	<< "[2]" << std::setw(44) << "1st Player Computer \'X\' vs 2nd Player \'O\'" << std::endl
-				  << std::setw( 7)	<< "[3]" << std::setw(44) << "1st Player \'O\' vs 2nd Player Computer \'X\'" << std::endl
+				  << std::setw( 7)	<< "[2]" << std::setw(44) << "1st Player \'O\' vs 2nd Player Computer \'X\'" << std::endl
+				  << std::setw( 7)	<< "[3]" << std::setw(44) << "1st Player Computer \'X\' vs 2nd Player \'O\'" << std::endl 
 				  << std::setw( 7)	<< "[4]" << std::setw(44) << "1st Player Computer \'O\' vs 2nd Player \'X\'" << std::endl
 				  << std::setw( 7)	<< "[5]" << std::setw(35) << "1st Player \'X\' vs 2nd Player \'O\'" << std::endl
 				  << std::setw( 7)	<< "[6]" << std::setw(35) << "1st Player \'O\' vs 2nd Player \'X\'" << std::endl
@@ -117,13 +117,6 @@ void TicTacToe::startGame( int &modus )
 		}
 		if( modus == 2 )
 		{
-			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicX( playerOnMove );
-			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicO( playerOnMove );
-			if( playerOnMove =='X' && !allReadyDone ) this->computerLogic( playerOnMove );
-			this->realPlayerSelectField();
-		}
-		if( modus == 3 )
-		{
 			this->firstPlayerOnScreen = 'O';
 			this->secondPlayerOnScreen = 'X';
 			if( !countSwapPlayer )
@@ -135,6 +128,13 @@ void TicTacToe::startGame( int &modus )
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicX( playerOnMove );
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicO( playerOnMove );
 			if( playerOnMove =='X' && !allReadyDone ) this->computerLogic( playerOnMove );
+		}
+		if( modus == 3 )
+		{
+			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicX( playerOnMove );
+			if( playerOnMove =='X' && !allReadyDone ) this->computerLogicO( playerOnMove );
+			if( playerOnMove =='X' && !allReadyDone ) this->computerLogic( playerOnMove );
+			this->realPlayerSelectField();
 		}
 		if( modus == 4 )
 		{

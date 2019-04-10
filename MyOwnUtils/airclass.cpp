@@ -46,11 +46,11 @@ void TubeProtocol::setSetPointAirVolume( const double& )
 
 void TubeProtocol::setMeasuredSpeed( const double& )
 {	
-	std::cout << std::endl << std::setw(44) << "Please insert the measured Speed in m/s:";
+	std::cout << std::endl << std::setw(43) << "Please insert the measured Speed in m/s:";
 	measuredSpeed = readValue<double>();
 	speedMeasurementsCollection.emplace_back( measuredSpeed );
 	this-> measuredSpeed = measuredSpeed;
-	std::cout << std::endl << std::setw(44) << "Do you want to enter another Speed? y/n:";
+	std::cout << std::endl << std::setw(43) << "Do you want to enter another Speed? y/n:";
 } 
 
 void TubeProtocol::setV_Max( const double&  )
@@ -192,7 +192,7 @@ double TubeProtocol::getDeviation() const
 std::string TubeProtocol::toString() const
 {
     std::stringstream ss;
-	
+	ss << std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(26) << "Measured Point:        "	<< std::setw(1)  << " " << std::setw(1)  << this->getinsertMeasurementPoint()	<< std::endl	<< std::endl;
 	ss										 << std::setw(26) << "Measured Speeds        "	<< std::setw(3)  <<" = "				 << this->speedMeasurementsCollectionToString()			<< std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(18) << "Calculated Data"			<< std::endl;								
@@ -317,11 +317,11 @@ void DuctProtocol::setSetPointAirVolume( const double& )
 
 void DuctProtocol::setMeasuredSpeed( const double& )
 {
-	std::cout << std::endl << std::setw(44) << "Please insert the measured Speed in m/s:";
+	std::cout << std::endl << std::setw(43) << "Please insert the measured Speed in m/s:";
 	measuredSpeed = readValue<double>();
 	speedMeasurementsCollection.emplace_back( measuredSpeed );
 	this-> measuredSpeed = measuredSpeed;
-	std::cout << std::endl << std::setw(44) << "Do you want to enter another Speed? y/n:";
+	std::cout << std::endl << std::setw(43) << "Do you want to enter another Speed? y/n:";
 } 
 
 void DuctProtocol::setV_Max( const double&  )
@@ -468,7 +468,7 @@ double DuctProtocol::getDeviation() const
 std::string DuctProtocol::toString() const
 {
     std::stringstream ss;
-
+	ss << std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(26) << "Measured Point:        "  << std::setw(1)  << " " << std::setw(1)  << this->getinsertMeasurementPoint()	<< std::endl	<< std::endl;
 	ss										 << std::setw(26) << "Measured Speeds        "	<< std::setw(3)  <<" = "<< this->speedMeasurementsCollectionToString()			<< std::endl;
 	ss << std::setprecision(0) << std::fixed << std::setw(18) << "Calculated Data"			<< std::endl;								

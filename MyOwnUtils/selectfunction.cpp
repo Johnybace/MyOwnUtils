@@ -198,7 +198,7 @@ SelectFunction::SelectFunction()
 		}
 		if( !project.empty() )
 		{
-			std::cout << std::endl << std::setw(26) << printProject << std::setw(1) << " " << std::setw(1) << project << std::endl << std::endl;
+			std::cout << std::endl << std::setw(26) << printProject << std::setw(1) << " " << std::setw(1) << project << std::endl;
 		}
 		if( !objectCollectionTubePr.empty() )
 		{
