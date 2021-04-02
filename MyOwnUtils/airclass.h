@@ -12,7 +12,7 @@ protected:
 					 ,printInsertMeasurementPoint	{ "Please Insert the Measurement-Point: "};
 					
 public:
-	std::string insertMeasurementPoint		{};
+	std::string insertMeasurementPoint {};
 
 	StringCollectionVentilation();
 	~StringCollectionVentilation();
@@ -54,6 +54,8 @@ public:
 	
 	std::string getinsertMeasurementPoint() const;
 	std::string speedMeasurementsCollectionToString () const;
+	std::string toString() const;
+
 	double getDiameter() const;
 	double getCalcCircularArea() const;
 	double getSetPointAirVolume() const;
@@ -65,7 +67,7 @@ public:
 	double getSpeedAverage() const;
 	double getAirvolume() const;
 	double getDeviation() const;
-	std::string toString() const;
+	
     friend std::ostream& operator<<( std::ostream &out, TubeProtocol& printObjects )
 	{
 		out << printObjects.toString();
@@ -113,7 +115,7 @@ protected:
 			,V_max {}
 			,V_min { INT_MAX }
 			,sumMeasuredSpeed {}
-			,counterSpeedIn
+			,counterSpeedIn {}
 			,expAvDuct {}
 			,averageSpeed {}
 			,airVolume {}
@@ -139,6 +141,8 @@ public:
 
 	std::string getinsertMeasurementPoint() const;
 	std::string speedMeasurementsCollectionToString() const;
+	std::string toString() const;
+
 	double getSetPointAirVolume() const;
 	double getWidth() const;
 	double getHeight() const;
@@ -151,7 +155,7 @@ public:
 	double getSpeedAverage() const;
 	double getAirvolume() const;
 	double getDeviation() const;
-	std::string toString() const;
+	
 	friend std::ostream& operator<<( std::ostream &out, DuctProtocol& printObjects )
 	{
 		out << printObjects.toString ();
@@ -179,7 +183,9 @@ public:
 	double getCalcOrthogonArea() const;
 	double getSetPointAirVolume() const;
 	double getCalcSpeedAvInDucts() const;
+
 	std::string toString() const;
+
 	friend std::ostream& operator<<( std::ostream &out, ExpSpeedAvInDucts& printObjects )
 	{
 		out << printObjects.toString ();
@@ -199,7 +205,7 @@ private:
 		double setPointAirVolume {}
 				,V_max {}
 				,V_min { INT_MAX }
-				,V_nom
+				,V_nom {}
 				,deviation {}
 				,maxAirVolume {}
 				,minAirVolume {};
@@ -231,9 +237,9 @@ public:
 	double getMinAirvolume() const;
 	double getDeviation() const; 
 	std::string toString() const; 
-	friend std::ostream& operator<<( std::ostream &out, VAVProtocol& printObjects )
+	friend std::ostream& operator<<( std::ostream& out, VAVProtocol& printObjects )
 	{
-		out << printObjects.toString ();
+		out << printObjects.toString();
 
 		return out;
 	}
@@ -256,9 +262,6 @@ public:
 
 class Dummy8
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy8();
 	~Dummy8();
@@ -266,9 +269,6 @@ public:
 
 class Dummy9
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy9();
 	~Dummy9();
@@ -276,9 +276,6 @@ public:
 
 class Dummy10
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy10();
 	~Dummy10();
@@ -286,9 +283,6 @@ public:
 
 class Dummy11
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy11();
 	~Dummy11();
@@ -296,9 +290,6 @@ public:
 
 class Dummy12
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy12();
 	~Dummy12();
@@ -306,9 +297,6 @@ public:
 
 class Dummy13
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy13();
 	~Dummy13();
@@ -316,9 +304,6 @@ public:
 
 class Dummy14
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy14();
 	~Dummy14();
@@ -326,9 +311,6 @@ public:
 
 class Dummy15
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy15();
 	~Dummy15();
@@ -336,9 +318,6 @@ public:
 
 class Dummy16
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy16();
 	~Dummy16();
@@ -346,9 +325,6 @@ public:
 
 class Dummy17
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy17();
 	~Dummy17();
@@ -356,9 +332,6 @@ public:
 
 class Dummy18
 {
-private:
-	const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy18();
 	~Dummy18();
@@ -366,9 +339,6 @@ public:
 
 class Dummy19
 {
-private:
-	 const std::string printEmptyFunc	  { "   This Function is Empty!" };
-
 public:
 	Dummy19();
 	~Dummy19();

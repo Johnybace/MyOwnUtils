@@ -1,23 +1,21 @@
 #include <algorithm>
 #include <iomanip>
-#include <iostream>
-#include <vector>
 
 #include <Windows.h>
 
 #include "airclass.h"
-#include "cinclearbuffer.cpp"
 #include "welcome.h"
 #include "selectfunction.h"
 #include "ticTacToe.h"
 
+#include "cinclearbuffer.cpp"
+
 
 SelectFunction::SelectFunction()
 {
-	double dumyForTubeAva{}, dumyForTubeAvb{};
-
-	std::string dumyForWhat {};
-	
+}
+void SelectFunction::selectfunction()
+{
 	static std::string project {};
 
 	static std::vector <TubeProtocol> objectCollectionTubePr {};
@@ -26,34 +24,41 @@ SelectFunction::SelectFunction()
 	static std::vector <ExpSpeedAvInTubes> objectCollectionTubeAv {};
 	static std::vector <ExpSpeedAvInDucts> objectCollectionDuctAv {};
 
-	Welcome();
-
-		do
-		{
-			AirVolMenu();
-
-			std::cout << std::setw(31) << insertFunction;
-			Form = readValue<int>();
-			if( Form < 0 || Form > 20 )
-			{
-				ClearScreen();
-				Welcome();
-				std::cout << std::endl << std::endl << std::setw(60) << warning << std::endl << std::endl;
-			}
-
-		} while( Form < 0 || Form >20 );
-
+	AirVolMenu OnScreen;
 	TubeProtocol TubePr;
 	DuctProtocol DuctPr;
 	VAVProtocol VAVPr;
 	ExpSpeedAvInTubes TubeAv;
 	ExpSpeedAvInDucts DuctAv;
 	TicTacToe game;
+	Welcome WelcomeScreen;
+	ClearScreen clearScreen;
+	SelectFunction ReSelectFunction;
+	Goodbey goodBey;
+
+	WelcomeScreen.welcomeOnScreen();
+		do
+		{
+			OnScreen.menuOnScreen();
+			std::cout << std::setw(31) << insertFunction;
+			Form = readValue<int>();
+			if( Form < 0 || Form > 20 )
+			{
+				std::cout << std::endl << std::endl << std::setw(60) << warning << std::endl << std::endl;
+				std::cout << std::setw(52) << "Press Enter!" << std::endl << std::endl;
+				std::cin.get();
+				
+				clearScreen.clearTheScreen();
+				WelcomeScreen.welcomeOnScreen();
+			}
+
+		} while( Form < 0 || Form >20 );
 	
 	switch( Form )
 	{
 	case 0:
-		Goodbey();
+		clearScreen.clearTheScreen();
+		goodBey.goodBeyScreen();
 		break;
 
 	case 1:
@@ -83,8 +88,8 @@ SelectFunction::SelectFunction()
 			std::cout << std::endl;
 			std::cout << TubePr << std::endl;
 			std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 	
 	case 2:
@@ -115,8 +120,8 @@ SelectFunction::SelectFunction()
 			std::cout << std::endl;
 			std::cout << DuctPr << std::endl;
 			std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 3:
@@ -139,8 +144,8 @@ SelectFunction::SelectFunction()
 			std::cout << std::endl;
 			std::cout << VAVPr << std::endl;
 			std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 4:
@@ -151,8 +156,8 @@ SelectFunction::SelectFunction()
 		objectCollectionTubeAv.emplace_back( TubeAv );
 		std::cout << TubeAv << std::endl;
 		std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 		
 	case 5:
@@ -164,15 +169,15 @@ SelectFunction::SelectFunction()
 		objectCollectionDuctAv.emplace_back( DuctAv );
 		std::cout << DuctAv << std::endl;
 		std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 6:
-		VentilatorPressure();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
 		std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 7:
@@ -228,88 +233,100 @@ SelectFunction::SelectFunction()
 							} );
 		}
 		std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 8:
-		Dummy8();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 9:
-		Dummy9();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 10:
-		Dummy10();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 11:
-		Dummy11();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 12:
-		Dummy12();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 13:
-		Dummy13();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 14:
-		Dummy14();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 15:
-		Dummy15();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 16:
-		Dummy16();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 17:
-		Dummy17();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 18:
-		Dummy18();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 19:
-		Dummy19();
-		ClearScreen();
-		SelectFunction();
+		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cin.get();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 
 	case 20:
 		game.setModus(game.modus);
 		game.startGame(game.modus);
 		std::cin.get();
-		ClearScreen();
-		SelectFunction();
+		clearScreen.clearTheScreen();
+		ReSelectFunction.selectfunction();
 		break;
 	}
 }

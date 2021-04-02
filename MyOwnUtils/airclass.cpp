@@ -7,6 +7,10 @@
 
 constexpr auto PI = 3.14159265358979323;
 
+ClearScreen clearScreen;
+Welcome WelcomeScreen;
+AirVolMenu OnScreen;
+
 StringCollectionVentilation::StringCollectionVentilation()
 {
 }
@@ -620,9 +624,9 @@ void VAVProtocol::setDeputySignal( const std::string&  )
 		deputySig = readValue<int>();
 		if( deputySig < 1 || deputySig > 4 )
 		{
-			ClearScreen();
-			Welcome();
-			AirVolMenu();
+			clearScreen.clearTheScreen();
+			WelcomeScreen.welcomeOnScreen();
+			OnScreen.menuOnScreen();
 			std::cout << std::endl << std::setw(65) << "WARNING!!!! No Valid Entry!" << std::endl << std::endl;
 		}
 	} while( deputySig < 1 || deputySig > 4 );
@@ -644,9 +648,9 @@ void VAVProtocol::setSpinDirection( const std::string& )
 		spinDir = readValue<int>();
 		if( spinDir < 1 || spinDir > 2 )
 		{
-			ClearScreen();
-			Welcome();
-			AirVolMenu();
+			clearScreen.clearTheScreen();
+			WelcomeScreen.welcomeOnScreen();
+			OnScreen.menuOnScreen();
 			std::cout << std::endl << std::setw(65) << "WARNING!!!! No Valid Entry!" << std::endl;
 		}
 	} while( spinDir < 1 || spinDir > 2 );
@@ -762,7 +766,6 @@ VentilatorPressure::~VentilatorPressure()
 
 Dummy8::Dummy8()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy8::~Dummy8()
@@ -770,7 +773,6 @@ Dummy8::~Dummy8()
 }
 Dummy9::Dummy9()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy9::~Dummy9()
@@ -778,81 +780,81 @@ Dummy9::~Dummy9()
 }
 Dummy10::Dummy10()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy10::~Dummy10()
 {
+	std::cin.get();
 }
 Dummy11::Dummy11()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy11::~Dummy11()
 {
+	std::cin.get();
 }
 Dummy12::Dummy12()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy12::~Dummy12()
 {
+	std::cin.get();
 }
 Dummy13::Dummy13()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy13::~Dummy13()
 {
+	std::cin.get();
 }
 Dummy14::Dummy14()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy14::~Dummy14()
 {
+	std::cin.get();
 }
 Dummy15::Dummy15()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy15::~Dummy15()
 {
+	std::cin.get();
 }
 Dummy16::Dummy16()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy16::~Dummy16()
 {
+	std::cin.get();
 }
 Dummy17::Dummy17()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy17::~Dummy17()
 {
+	std::cin.get();
 }
 Dummy18::Dummy18()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy18::~Dummy18()
 {
+	std::cin.get();
 }
 Dummy19::Dummy19()
 {
-	std::cout << std::endl << printEmptyFunc << std::endl;
 	std::cin.get();
 }
 Dummy19::~Dummy19()
 {
+	std::cin.get();
 }

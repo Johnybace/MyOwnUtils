@@ -15,6 +15,8 @@ private:
 				,firstLine  { "A simply tool to calculate Airvolume in" };
 
 public:
+	void welcomeOnScreen();
+
 	Welcome();
 	~Welcome();
 };
@@ -51,12 +53,13 @@ private:
 					 ,functionChoosing			{ "Choose Funktion" }
 					 ,rectanglecalc				{ "Duct-Protocol" }
 					 ,ventilatorPr				{ "Airvolume by Differential Pressure"}
-					 ,averageTube				{ "Average Speed in Pipe" }
+					 ,averageTube				{ "Average Speed in Tube" }
 					 ,averageRect				{ "Average Speed in Duct" }
 					 ,tictactoe					{ "Tic Tac Toe" };
-
-protected:
+					 
 public:
+	void menuOnScreen();
+
 	AirVolMenu();
 	~AirVolMenu();
 };
@@ -64,6 +67,8 @@ public:
 class ClearScreen
 {
 public:
+	void clearTheScreen();
+
 	ClearScreen();
 	~ClearScreen();
 };
@@ -76,6 +81,7 @@ private:
 			   ,goodbey03  { "************************************************" };
 
 public:
+	void goodBeyScreen();
 	Goodbey();
 	~Goodbey();
 };

@@ -6,6 +6,9 @@
 
 #include "cinclearbuffer.cpp"
 
+ClearScreen clearTheScreen;
+Welcome WelcomeTheScreen;
+
 TicTacToe::TicTacToe()
 :playerOnMove{'X'}, firstPlayerOnScreen{'X'}, secondPlayerOnScreen{'O'}
 ,width{17}, width01{58}, width02{52}
@@ -62,8 +65,8 @@ void TicTacToe::emptyField() const
 
 void TicTacToe::fieldToScreen() const
 {
-	ClearScreen();
-	Welcome();
+	clearTheScreen.clearTheScreen();
+	WelcomeTheScreen.welcomeOnScreen();
 	std::cout << std::endl << std::endl;
 	std::cout << std::setw(width)<< "1st Player \'" << firstPlayerOnScreen << "\'" << std::endl;
 	std::cout << std::setw(width)<< "2nd Player \'" << secondPlayerOnScreen   << "\'" << std::endl;
@@ -78,12 +81,12 @@ void TicTacToe::fieldToScreen() const
 	}
 }
 
-int TicTacToe::setModus(int &modus)
+int TicTacToe::setModus(int &)
 {
 	do
 	{
-		ClearScreen();
-		Welcome();
+		clearTheScreen.clearTheScreen();
+		WelcomeTheScreen.welcomeOnScreen();
 		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 		this->emptyField();
 		std::cout << std::endl << std::endl
@@ -101,7 +104,7 @@ int TicTacToe::setModus(int &modus)
 	return this-> modus;
 }
 
-void TicTacToe::startGame( int &modus )
+void TicTacToe::startGame( int & )
 {
 	while( !winner &&
 		 ( field01 || field02 || field03 ||
@@ -180,7 +183,7 @@ void TicTacToe::realPlayerSelectField()
 	allReadyDone = false;
 }
 
-void TicTacToe::playerSetField( char &playerOnMove,int &field )
+void TicTacToe::playerSetField( char &, int &)
 {
 	if( field == 1 ) this->setField01( TicTacToe::playerOnMove, TicTacToe::field01 );
 	if( field == 2 ) this->setField02( TicTacToe::playerOnMove, TicTacToe::field02 );
@@ -193,7 +196,7 @@ void TicTacToe::playerSetField( char &playerOnMove,int &field )
 	if( field == 9 ) this->setField09( TicTacToe::playerOnMove, TicTacToe::field09 );
 }
 
-void TicTacToe::computerLogicX( char &playerOnMove )
+void TicTacToe::computerLogicX( char & )
 {
 	////////// 1-2-3 //////////
 	if( playerFieldLine11[ 1] == 'X' && playerFieldLine11[ 9] == 'X' && field03 )
@@ -325,7 +328,7 @@ void TicTacToe::computerLogicX( char &playerOnMove )
 	}
 }
 
-void TicTacToe::computerLogicO( char &playerOnMove )
+void TicTacToe::computerLogicO( char & )
 {
 	////////// 1-2-3 //////////
 	if( playerFieldLine11[ 2] == 'O' && playerFieldLine11[10] == 'O' && field03 )
@@ -617,7 +620,7 @@ void TicTacToe::computerLogic(char & )
 	}
 }
 
-void TicTacToe::setField01( char &playerOnMove, bool & )
+void TicTacToe::setField01( char &, bool & )
 {
 	if( playerOnMove == 'X' && field01 )
 	{
@@ -647,7 +650,7 @@ void TicTacToe::setField01( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField02( char &playerOnMove, bool & )
+void TicTacToe::setField02( char &, bool & )
 {
 	if( playerOnMove == 'X' && field02 )
 	{
@@ -677,7 +680,7 @@ void TicTacToe::setField02( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField03( char &playerOnMove, bool & )
+void TicTacToe::setField03( char &, bool & )
 {
 	if( playerOnMove == 'X' && field03 )
 	{
@@ -707,7 +710,7 @@ void TicTacToe::setField03( char &playerOnMove, bool & )
 	this->checkForWi();
 } 
 
-void TicTacToe::setField04( char &playerOnMove, bool & )
+void TicTacToe::setField04( char &, bool & )
 {
 	if( playerOnMove == 'X' && field04 )
 	{
@@ -737,7 +740,7 @@ void TicTacToe::setField04( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField05( char &playerOnMove, bool & )
+void TicTacToe::setField05( char &, bool & )
 {
 	if( playerOnMove == 'X' && field05 )
 	{
@@ -767,7 +770,7 @@ void TicTacToe::setField05( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField06( char &playerOnMove, bool & )
+void TicTacToe::setField06( char &, bool & )
 {
 	if( playerOnMove == 'X' && field06 )
 	{
@@ -797,7 +800,7 @@ void TicTacToe::setField06( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField07( char &playerOnMove, bool & )
+void TicTacToe::setField07( char &, bool & )
 {
 	if( playerOnMove == 'X' && field07 )
 	{
@@ -827,7 +830,7 @@ void TicTacToe::setField07( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField08( char &playerOnMove, bool & )
+void TicTacToe::setField08( char &, bool & )
 {
 	if( playerOnMove == 'X' && field08 )
 	{
@@ -857,7 +860,7 @@ void TicTacToe::setField08( char &playerOnMove, bool & )
 	this->checkForWi();
 }
 
-void TicTacToe::setField09( char &playerOnMove, bool & )
+void TicTacToe::setField09( char &, bool & )
 {
 	if( playerOnMove == 'X' && field09 )
 	{
@@ -934,7 +937,7 @@ void TicTacToe::checkForWi()
 	this->swapPlayer( player );
 }
 
-int TicTacToe::swapPlayer( int &player )
+int TicTacToe::swapPlayer( int & )
 {
 	if( player == 1 )
 	{

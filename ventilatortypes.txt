@@ -1,0 +1,34 @@
+Geghardt:
+
+RZR 11, 19
+RZR 15, 18
+RZR 13
+RZA
+RZP
+RLM 16
+RLM E6, RLM E3
+RLM 56
+RLM 55
+
+Fläkt:
+
+GXLF
+GXLB
+GXHB
+GPEB-1
+GPEV-1
+GPEC-3, GPEC-4
+GPPM_1
+GMEB, GMPM, GMEC
+
+Ziehl-Abegg:
+
+ER..C, GR..C, RH..C
+ER..F, GR..F, RH..F
+
+ebm-papst
+
+R3K/K3G xxx-A/-B
+R3G/K3G xxx-R
+R3G/K3G xxx-P
+
