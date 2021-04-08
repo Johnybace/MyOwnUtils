@@ -7,23 +7,63 @@
 ClearScreen clearScr;
 
 Welcome::Welcome()
+:Adress03	{ "8052 Zuerich" }
+,Adress01	{ "MAX KELLER AG" }
+,secondLine	{ "Ventilation-System" }
+,telefon	{ "TEL. 044/ 302 44 06" }
+,Adress02	{ "Schaffhauserstrasse 466" }
+,thirdLine	{ "Created by_   Johnybace" }
+,firstLine	{ "A simply tool to calculate Airvolume in" }
 {
 }
+
 void Welcome::welcomeOnScreen()
 {
-	std::cout << std::endl << std::setw(65) << std::right << firstLine << std::endl
-		<< std::setw(55) << secondLine << std::endl
-		<< std::setw(57) << thirdLine << std::endl << std::endl
-		<< std::setw(49) << Adress01 << std::endl
-		<< std::setw(59) << Adress02 << std::endl
-		<< std::setw(48) << Adress03 << std::endl
-		<< std::setw(55) << telefon << std::endl << std::endl;
+	std::cout	<< std::endl << std::setw(65) << std::right << firstLine << std::endl
+				<< std::setw(55) << secondLine << std::endl
+				<< std::setw(57) << thirdLine << std::endl << std::endl
+				<< std::setw(49) << Adress01 << std::endl
+				<< std::setw(59) << Adress02 << std::endl
+				<< std::setw(48) << Adress03 << std::endl
+				<< std::setw(55) << telefon << std::endl << std::endl;
 }
 Welcome::~Welcome()
 {
 }
 
 AirVolMenu::AirVolMenu()
+:zero				{ "[ 0]" }
+,first				{ "[ 1]" }
+,second				{ "[ 2]" }
+,third				{ "[ 3]" }
+,fourth				{ "[ 4]" }
+,fifth				{ "[ 5]" }
+,sixth				{ "[ 6]" }
+,seventh			{ "[ 7]" }
+,eight				{ "[ 8]" }
+,ninenth			{ "[ 9]" }
+,tenth				{ "[10]" }
+,eleventh			{ "[11]" }
+,twelveth			{ "[12]" }
+,thirteenth			{ "[13]" }
+,fourteenth			{ "[14]" }
+,fifteenth			{ "[15]" }
+,sixteenth			{ "[16]" }
+,seventeenth		{ "[17]" }
+,eightteenth		{ "[18]" }
+,nineteenth			{ "[19]" }
+,twentieth			{ "[20]" }
+,exit				{ "Exit" }
+,notUsed			{ "empty" }
+,printLastEntries	{ "Print last Entries" }
+,VAV				{ "VAV-Protocol" }
+,tubecalc			{ "Pipe-Protocol" }
+,functionChoosing	{ "Choose Funktion" }
+,rectanglecalc		{ "Duct-Protocol" }
+,ventilatorPr		{ "Airvolume by Differential Pressure" }
+,averageTube		{ "Average Speed in Tube" }
+,averageRect		{ "Average Speed in Duct" }
+,tictactoe			{ "Tic Tac Toe" }
 {
 }
 
@@ -69,6 +109,9 @@ ClearScreen::~ClearScreen()
 }
 
 Goodbey::Goodbey()
+:goodbey01{ "************************************************" } 
+,goodbey02{ "******************  Goodbey!  ******************" }
+,goodbey03{ "************************************************" }
 {
 }
 
@@ -81,6 +124,7 @@ void Goodbey::goodBeyScreen()
 	Sleep(250);
 	std::cout << std::setw(71) << goodbey03 << std::endl;
 	Sleep(1000);
+	system("cls");
 }
 
 Goodbey::~Goodbey()

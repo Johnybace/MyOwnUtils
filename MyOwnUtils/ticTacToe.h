@@ -26,25 +26,25 @@ private:
 public:
 	int modus;
 
-	int  setModus( int &modus );
-	int  swapPlayer( int &player );
-	void emptyField() const;
-	void startGame( int &modus );
-	void realPlayerSelectField();
-	void playerSetField( char &playerOnMove, int &field );
-	void computerLogicO( char &field );
-	void computerLogicX( char &field );
-	void computerLogic( char &playerOnMove);
-	void setField01( char &playerOnMove,  bool &field01 );
-	void setField02( char &playerOnMove,  bool &field02 );
-	void setField03( char &playerOnMove,  bool &field03 );
-	void setField04( char &playerOnMove,  bool &field04 );
-	void setField05( char &playerOnMove,  bool &field05 );
-	void setField06( char &playerOnMove,  bool &field06 );
-	void setField07( char &playerOnMove,  bool &field07 );
-	void setField08( char &playerOnMove,  bool &field08 );
-	void setField09( char &playerOnMove,  bool &field09 );
+	int  setModus( int& );
+	int  swapPlayer( int& );
 
+	void emptyField() const;
+	void startGame( int& );
+	void realPlayerSelectField();
+	void playerSetField( char&, int& );
+	void computerLogicO( char& );
+	void computerLogicX( char& );
+	void computerLogic( char&);
+	void setField01( char&, bool& );
+	void setField02( char&, bool& );
+	void setField03( char&, bool& );
+	void setField04( char&, bool& );
+	void setField05( char&, bool& );
+	void setField06( char&, bool& );
+	void setField07( char&, bool& );
+	void setField08( char&, bool& );
+	void setField09( char&, bool& );
 	void checkForWi();
 	void gameOver() const;
 	void fieldToScreen() const;

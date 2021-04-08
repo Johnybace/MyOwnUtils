@@ -12,8 +12,22 @@
 
 
 SelectFunction::SelectFunction()
+:loop {' '}
+,equal{ '=' }
+,doloop{ 'n' }
+,Form{}
+,dumyForTubeAva{}
+,dumyForTubeAvb{}
+,dumyForWhat{}
+,insertFunction{ "Please choose your Function:" }
+,warning{ "WARNING!!!! No Valid Entry!" }
+,printIinsertProjectName{ "Please give a Project-Name: " }
+,printProject{ "Project:               " }
+,printPipes{ "Pipe-Averages" }
+,printDucts{ "Duct-Averages" }
 {
 }
+
 void SelectFunction::selectfunction()
 {
 	static std::string project {};
@@ -36,6 +50,7 @@ void SelectFunction::selectfunction()
 	SelectFunction ReSelectFunction;
 	Goodbey goodBey;
 
+	clearScreen.clearTheScreen();
 	WelcomeScreen.welcomeOnScreen();
 		do
 		{
@@ -174,7 +189,7 @@ void SelectFunction::selectfunction()
 		break;
 
 	case 6:
-		std::cout << std::endl << "   This Function is Empty!" << std::endl;
+		std::cout << std::endl << "   This Function is under Construction!" << std::endl;
 		std::cin.get();
 		clearScreen.clearTheScreen();
 		ReSelectFunction.selectfunction();
@@ -330,6 +345,7 @@ void SelectFunction::selectfunction()
 		break;
 	}
 }
+
 SelectFunction::~SelectFunction()
 {
 }

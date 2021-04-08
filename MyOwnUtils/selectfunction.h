@@ -6,24 +6,17 @@
 class SelectFunction
 {
 private:
-	char loop	 { ' ' }
-		 ,equal  { '=' }
-		 ,doloop { 'n' };
+	char loop, equal, doloop;
 
-	double dumyForTubeAva{}, dumyForTubeAvb{};
+	double dumyForTubeAva, dumyForTubeAvb;
 
-	std::string dumyForWhat{};
+	std::string dumyForWhat;
 
-	const std::string insertFunction			{ "Please choose your Function:" }
-					  ,warning					{ "WARNING!!!! No Valid Entry!" }
-					  ,printIinsertProjectName	{ "Please give a Project-Name: " }
-					  ,printProject				{ "Project:               "}
-					  ,printPipes				{ "Pipe-Averages" }
-					  ,printDucts				{ "Duct-Averages" };
+	const std::string insertFunction, warning, printIinsertProjectName, printProject, printPipes, printDucts;
 
 protected:
 public:
-	int Form{};
+	int Form;
 
 	void selectfunction();
 

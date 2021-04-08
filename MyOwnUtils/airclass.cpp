@@ -32,7 +32,7 @@ void TubeProtocol::setDiameter( const double& )
 	std::cout << std::setw(36) << "Please insert the Diameter in mm:";
 	diameter = readValue<double>();
 	std::cout << std::endl;
-	this-> diameter = diameter;
+	this-> diameter;
 }
 
 void TubeProtocol::setCalcCircularArea( const double& )
@@ -45,7 +45,7 @@ void TubeProtocol::setSetPointAirVolume( const double& )
 	std::cout << std::setw(17) << "Setpoint input" << std::endl << std::endl;
 	std::cout << std::setw(48) << "Please insert the Airvolume Setpoint in m3/h:";
 	setPointAirVolume = readValue<double>();
-	this-> setPointAirVolume = setPointAirVolume;
+	this-> setPointAirVolume;
 }
 
 void TubeProtocol::setMeasuredSpeed( const double& )
@@ -53,7 +53,7 @@ void TubeProtocol::setMeasuredSpeed( const double& )
 	std::cout << std::endl << std::setw(43) << "Please insert the measured Speed in m/s:";
 	measuredSpeed = readValue<double>();
 	speedMeasurementsCollection.emplace_back( measuredSpeed );
-	this-> measuredSpeed = measuredSpeed;
+	this-> measuredSpeed;
 	std::cout << std::endl << std::setw(43) << "Do you want to enter another Speed? y/n:";
 } 
 
@@ -225,7 +225,7 @@ void ExpSpeedAvInTubes::setDiameter( const double& )
 	std::cout << std::setw(36) << "Please insert the Diameter in mm:";
 	diameter = readValue<double>();
 	std::cout << std::endl;
-	this-> diameter = diameter;
+	this-> diameter;
 }
 
 void ExpSpeedAvInTubes::setSetPointAirVolume( const double& )
@@ -233,7 +233,7 @@ void ExpSpeedAvInTubes::setSetPointAirVolume( const double& )
 	std::cout << std::setw(48) << "Please insert the Airvolume Setpoint in m3/h:";
 	setPointAirVolume = readValue<double>();
 	std::cout << std::endl;
-	this-> setPointAirVolume = setPointAirVolume;
+	this-> setPointAirVolume;
 }
 
 void ExpSpeedAvInTubes::setCalcSpeedAvInTubes( const double& , const double& )
@@ -295,7 +295,7 @@ void DuctProtocol::setWidth( const double&  )
 	std::cout << std::setw(33) << "Please insert the width in mm:";
 	width = readValue<double>();
 	std::cout << std::endl;
-	this-> width = width;
+	this-> width;
 }
 
 void DuctProtocol::setHeight( const double&  )
@@ -303,7 +303,7 @@ void DuctProtocol::setHeight( const double&  )
 	std::cout << std::setw(34) << "Please insert the height in mm:";
 	height = readValue<double>();
 	std::cout << std::endl;
-	this-> height = height;
+	this-> height;
 }
 
 void DuctProtocol::setCalcOrthogonArea( const double& , const double& )
@@ -316,7 +316,7 @@ void DuctProtocol::setSetPointAirVolume( const double& )
 	std::cout << std::setw(17) << "Setpoint input" << std::endl << std::endl;
 	std::cout << std::setw(48) << "Please insert the Airvolume Setpoint in m3/h:";
 	setPointAirVolume = readValue<double>();
-	this-> setPointAirVolume = setPointAirVolume;
+	this-> setPointAirVolume;
 }
 
 void DuctProtocol::setMeasuredSpeed( const double& )
@@ -324,7 +324,7 @@ void DuctProtocol::setMeasuredSpeed( const double& )
 	std::cout << std::endl << std::setw(43) << "Please insert the measured Speed in m/s:";
 	measuredSpeed = readValue<double>();
 	speedMeasurementsCollection.emplace_back( measuredSpeed );
-	this-> measuredSpeed = measuredSpeed;
+	this-> measuredSpeed;
 	std::cout << std::endl << std::setw(43) << "Do you want to enter another Speed? y/n:";
 } 
 
@@ -502,7 +502,7 @@ void ExpSpeedAvInDucts::setWidth( const double&  )
 	std::cout << std::setw(33) << "Please insert the width in mm:";
 	width = readValue<double>();
 	std::cout << std::endl;
-	this-> width = width;
+	this-> width;
 }
 
 void ExpSpeedAvInDucts::setHeight( const double&  )
@@ -510,7 +510,7 @@ void ExpSpeedAvInDucts::setHeight( const double&  )
 	std::cout << std::setw(34) << "Please insert the height in mm:";
 	height = readValue<double>();
 	std::cout << std::endl;
-	this-> height = height;
+	this-> height;
 }
 
 void ExpSpeedAvInDucts::setCalcOrthogonArea( const double& , const double& )
@@ -523,7 +523,7 @@ void ExpSpeedAvInDucts::setSetPointAirVolume( const double&  )
 	std::cout << std::setw(48) << "Please insert the Airvolume Setpoint in m3/h:";
 	setPointAirVolume = readValue<double>();
 	std::cout << std::endl;
-	this-> setPointAirVolume = setPointAirVolume;
+	this-> setPointAirVolume;
 }
 
 void ExpSpeedAvInDucts::setCalcSpeedAvInDucts( const double& , const double& )
@@ -586,7 +586,7 @@ void VAVProtocol::setSetPointAirVolume( const double& )
 	std::cout << std::setw(17) << "Setpoint input" << std::endl << std::endl;
 	std::cout << std::setw(48) << "Please insert the Airvolume Setpoint in m3/h:";
 	setPointAirVolume = readValue<double>();
-	this-> setPointAirVolume = setPointAirVolume;
+	this-> setPointAirVolume;
 }
 
 void VAVProtocol::setV_Nom( const double&  )
@@ -663,14 +663,14 @@ void VAVProtocol::setMaxAirvolume ( const double&  )
 {
 	std::cout << std::endl << std::setw(45) << "Please insert the reading V-Max Airvolume:";
 	maxAirVolume = readValue<double>();
-	this-> maxAirVolume = maxAirVolume;
+	this-> maxAirVolume;
 }
 
 void VAVProtocol::setMinAirvolume ( const double&  )
 {
 	std::cout << std::endl << std::setw(45) << "Please insert the reading V-Min Airvolume:";
 	minAirVolume = readValue<double>();
-	this-> minAirVolume = minAirVolume;
+	this-> minAirVolume;
 }
 
 void VAVProtocol::setDeviation( const double& )
@@ -766,95 +766,73 @@ VentilatorPressure::~VentilatorPressure()
 
 Dummy8::Dummy8()
 {
-	std::cin.get();
 }
 Dummy8::~Dummy8()
 {
 }
 Dummy9::Dummy9()
 {
-	std::cin.get();
 }
 Dummy9::~Dummy9()
 {
 }
 Dummy10::Dummy10()
 {
-	std::cin.get();
 }
 Dummy10::~Dummy10()
 {
-	std::cin.get();
 }
 Dummy11::Dummy11()
 {
-	std::cin.get();
 }
 Dummy11::~Dummy11()
 {
-	std::cin.get();
 }
 Dummy12::Dummy12()
 {
-	std::cin.get();
 }
 Dummy12::~Dummy12()
 {
-	std::cin.get();
 }
 Dummy13::Dummy13()
 {
-	std::cin.get();
 }
 Dummy13::~Dummy13()
 {
-	std::cin.get();
 }
 Dummy14::Dummy14()
 {
-	std::cin.get();
 }
 Dummy14::~Dummy14()
 {
-	std::cin.get();
 }
 Dummy15::Dummy15()
 {
-	std::cin.get();
 }
 Dummy15::~Dummy15()
 {
-	std::cin.get();
 }
 Dummy16::Dummy16()
 {
-	std::cin.get();
 }
 Dummy16::~Dummy16()
 {
-	std::cin.get();
 }
 Dummy17::Dummy17()
 {
-	std::cin.get();
 }
 Dummy17::~Dummy17()
 {
-	std::cin.get();
 }
 Dummy18::Dummy18()
 {
-	std::cin.get();
 }
 Dummy18::~Dummy18()
 {
-	std::cin.get();
 }
 Dummy19::Dummy19()
 {
-	std::cin.get();
 }
 Dummy19::~Dummy19()
 {
-	std::cin.get();
 }
