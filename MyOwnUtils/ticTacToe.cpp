@@ -955,7 +955,7 @@ int TicTacToe::swapPlayer( int& )
 }
 
 void TicTacToe::gameOver() const
-{
+{												//good game lol
 	this->fieldToScreen();
 	if( winner )
 	{
